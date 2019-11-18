@@ -21,3 +21,8 @@ node 3 parent 2 children
 node 4 parent 2 children 
 */
 ```
+冒頭でこの関数が何の為に作られたのか、何ができるのかを一行で簡潔に説明。<br>
+この時は[AtCoderのABC138 D問題](https://atcoder.jp/contests/abc138/tasks/abc138_d)を解くために作った。<br>
+<br>
+与えられていた状況は以下の通り。
+>1からNまでの
