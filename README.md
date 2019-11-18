@@ -3,7 +3,7 @@
 以下、upしたファイルの一つである「general_tree.c」を元に見方を解説します。
 
 ## 概要
-'''C
+```C
 /*
 二分木とは限らない一般の木構造(子がいくつかが決まってない)を記述する
 問題：AtCoder ABC138-D
@@ -20,4 +20,4 @@ node 2 parent 1 children 4 3
 node 3 parent 2 children 
 node 4 parent 2 children 
 */
-'''
+```
