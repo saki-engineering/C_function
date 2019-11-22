@@ -77,6 +77,31 @@ int string_compare(String p,String q){
     return n;
 }
 
+//qsortに使うのはこれ
+int string_compare２(const void* a, const void* b){
+    String p=*(String*)a;
+    String q=*(String*)b;
+    
+    int np=string_len(p);
+    int nq=string_len(q);
+
+    int m;
+    if(np<=nq) m=np;
+    else m=nq;
+    //mは、文字列p,qのうち短い方の長さを表すint型変数
+    
+    int i=0;
+    int n=0;
+    while(i<=m){
+        if(p[i]<q[i]){n=-1; break;}
+        else if(p[i]>q[i]){n=1; break;}
+        else{i++;}
+    }
+    
+    return n;
+}
+
+
 //以下のmain関数に、(使用例)と同じ入力をすることで動作を確認できる。
 
 int main(void){
