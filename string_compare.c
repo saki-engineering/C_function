@@ -93,6 +93,14 @@ int string_compare２(const void* a, const void* b){
     return n;
 }
 
+//string.hの関数を使用した簡潔verがこれ
+int string_compare3(const void* a, const void* b){
+    String p=*(String*)a;
+    String q=*(String*)b;
+
+    return strcmp(p,q);
+}
+
 
 //以下のmain関数に、(使用例)と同じ入力をすることで動作を確認できる。
 
