@@ -20,6 +20,7 @@ void string_lexical_order(String s)
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 #define NEW(p,n){p=malloc((n)*sizeof(p[0]));if(p==NULL){printf("not enough memory\n");exit(1);};}
 //pの型の変数n個の要素分のメモリを確保し、そのアドレスをpに代入するマクロ
@@ -27,14 +28,6 @@ void string_lexical_order(String s)
 //char型のポインタ(=配列と意味は同じ)をString型と定義([0]から数える)
 typedef char* String;
 
-//S[0]から始まる文字列の長さを求める関数
-int string_len(String str){
-    int len=0;
-    while(str[len]!=0){
-        len++;
-    }
-    return len;
-}
 
 //文字列を標準入力から読み込み、それをString型のメモリを確保し直してくれる関数
 //S[0]~S[n-1]までが入力で、S[n]は0になる
@@ -45,7 +38,7 @@ String string_input(void){
     String str;
     scanf("%s",buf);//buf=入力した文字列が入るchar型の配列
     
-    len=string_len(buf);//len=文字列の長さを表すint型変数
+    len=strlen(buf);//len=文字列の長さを表すint型変数
     NEW(str,len+1);//strはただのポインタだから、ここでNEWを使ってメモリを確保しなくちゃいけない
     for(i=0;i<len;i++){
         str[i]=buf[i];
@@ -56,7 +49,7 @@ String string_input(void){
 }
 
 void string_lexical_order(String s){
-    int n = string_len(s);
+    int n = strlen(s);
 
     //挿入法でのソートを行う
     int i,j;
