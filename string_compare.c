@@ -20,21 +20,13 @@ int string_compare(String p,String q)
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 #define NEW(p,n){p=malloc((n)*sizeof(p[0]));if(p==NULL){printf("not enough memory\n");exit(1);};}
 //pの型の変数n個の要素分のメモリを確保し、そのアドレスをpに代入するマクロ
 
 //char型のポインタ(=配列と意味は同じ)をString型と定義([0]から数える)
 typedef char* String;
-
-//S[0]から始まる文字列の長さを求める関数
-int string_len(String str){
-    int len=0;
-    while(str[len]!=0){
-        len++;
-    }
-    return len;
-}
 
 //文字列を標準入力から読み込み、それをString型のメモリを確保し直してくれる関数
 //S[0]~S[n-1]までが入力で、S[n]は0になる
@@ -45,7 +37,7 @@ String string_input(void){
     String str;
     scanf("%s",buf);//buf=入力した文字列が入るchar型の配列
     
-    len=string_len(buf);//len=文字列の長さを表すint型変数
+    len=strlen(buf);//len=文字列の長さを表すint型変数
     NEW(str,len+1);//strはただのポインタだから、ここでNEWを使ってメモリを確保しなくちゃいけない
     for(i=0;i<len;i++){
         str[i]=buf[i];
@@ -58,8 +50,8 @@ String string_input(void){
 //与えられた文字列を比較し、結果によって決められたint型変数を返す関数
 //p<qなら-1,p>qなら+1,p==qなら0
 int string_compare(String p,String q){
-    int np=string_len(p);
-    int nq=string_len(q);
+    int np=strlen(p);
+    int nq=strlen(q);
 
     int m;
     if(np<=nq) m=np;
@@ -82,8 +74,8 @@ int string_compare２(const void* a, const void* b){
     String p=*(String*)a;
     String q=*(String*)b;
     
-    int np=string_len(p);
-    int nq=string_len(q);
+    int np=strlen(p);
+    int nq=strlen(q);
 
     int m;
     if(np<=nq) m=np;
