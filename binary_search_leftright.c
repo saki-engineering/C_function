@@ -42,15 +42,15 @@ int binary_search_right(long* array,int min, int max, long key)
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
-//配列sの中で、keyより初めて大きくなる添字を出力
+//配列sの中で、keyより初めて大きくなる添字を出力(そのようなものがないなら、max+1を出力)
 int binary_search_right(long* array,int min, int max, long key){
     if(min<max){
         int mid=min+(max-min)/2;
 
-        if(key<array[mid]) return binary_search_right(array,min,mid,key);
+        if(key<=array[mid]) return binary_search_right(array,min,mid,key);
         else if(key>array[mid]) return binary_search_right(array,mid+1,max,key);
     }
-    if(key>array[min]) return min+1;
+    if(key>=array[min]) return min+1;
     return min;
 }
 
@@ -59,7 +59,7 @@ int binary_search_left(long* array,int min, int max, long key){
     if(min<max){
         int mid=min+(max-min)/2;
 
-        if(key<array[mid]) return binary_search_left(array,min,mid,key);
+        if(key<=array[mid]) return binary_search_left(array,min,mid,key);
         else if(key>array[mid]) return binary_search_left(array,mid+1,max,key);
     }
     if(key>array[min]) return min;
