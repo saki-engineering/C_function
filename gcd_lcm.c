@@ -44,7 +44,7 @@ int gcd(int a, int b){
 
 //最小公倍数
 int lcm(int a, int b){
-    return a*b/gcd(a,b);
+    return a*(b/gcd(a,b));
 }
 
 //以下のmain関数に、(使用例)と同じ入力をすることで動作を(同時)確認できる。
